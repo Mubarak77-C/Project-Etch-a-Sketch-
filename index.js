@@ -9,17 +9,22 @@ console.log('hy');
 // });
 
 const input = document.querySelector("input");
-const submitBtn= document.querySelector("#submit-btn");
+const submitBtn = document.querySelector("#submit-btn");
 
-submitBtn.addEventListener("click",()=>{
-// 3. Grab the value INSIDE the function, right when the user clicks!
+submitBtn.addEventListener("click", () => {
+    // 3. Grab the value INSIDE the function, right when the user clicks!
     // Also, wrap it in Number() or parseInt() because input values are strings by default
- const inputUser =  Number(input.value);
+    const inputUser = Number(input.value);
 
-    if(inputUser<1 || inputUser>100){
+    if (inputUser < 1 || inputUser > 100) {
         alert("Please Enter number from 1 to 100");
     }
     console.log(inputUser);
 });
 
+const totalcells = inputUser * inputUser; //N x N row coln grid as user input
 
+const container = document.querySelector("#grid-container")
+// This sets the grid layout dynamically (e.g., repeat(4, 1fr))
+container.style.gridTemplateColumns = `repeat(${inputUser}, 1fr)`;
+container.style.gridTemplateRows = `repeat(${inputUser}, 1fr)`;
