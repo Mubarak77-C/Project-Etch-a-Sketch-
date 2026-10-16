@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-Etch-a-Sketch</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<script src="index.js" defer></script>
+
+<!-- The defer attribute ensures that the HTML loads completely before your JavaScript runs. -->
+
+<body>
+    <h1>Project-Etch-a-Sketch</h1>
+    <div class="input">
+        <label for="grid-size">Enter number (1-100):</label>
+        <input type="number" id="grid-size" min="1" max="100">
+        <button id="submit-btn">Set Grid</button>
+        <button id="clear-btn">Clear Grid</button>
+    </div>
+    <button id="black-mode-btn">Black Mode</button>
+<button id="rainbow-mode-btn">Rainbow Mode</button>
+    <div id="grid-container"></div>
+
+
+</body>
+
+</html>
