@@ -24,30 +24,36 @@ submitBtn.addEventListener("click", () => {
     console.log(inputUser);
 
 
-const totalcells = inputUser * inputUser; //N x N row coln grid as user input
+    const totalcells = inputUser * inputUser; //N x N row coln grid as user input
 
-const container = document.querySelector("#grid-container")
-// This sets the grid layout dynamically (e.g., repeat(4, 1fr))
-container.style.gridTemplateColumns = `repeat(${inputUser}, 1fr)`;
-container.style.gridTemplateRows = `repeat(${inputUser}, 1fr)`;
-
-
-container.innerHTML= ''; //wipe out whatever grid user putted from #grid-container
-//loop and appending css to visualise by createElement div and append to container to visible 
+    const container = document.querySelector("#grid-container")
+    // This sets the grid layout dynamically (e.g., repeat(4, 1fr))
+    container.style.gridTemplateColumns = `repeat(${inputUser}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${inputUser}, 1fr)`;
 
 
-for(let i=0; i<totalcells; i++ ){
- const cell =document.createElement("div");
- cell.classList.add("grid-cell"); // Use this class in CSS to give cells a border
- cell.addEventListener("mouseover" , ()=>{
-    cell.style.backgroundColor ="black";
-});
- container.appendChild(cell);
-}
+    container.innerHTML = ''; //wipe out whatever grid user putted from #grid-container
+    //loop and appending css to visualise by createElement div and append to container to visible 
 
 
+    for (let i = 0; i < totalcells; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("grid-cell"); // Use this class in CSS to give cells a border
+        cell.addEventListener("mouseover", () => {
+            cell.style.backgroundColor = "black";
+        });
+        container.appendChild(cell);
+    }
 
+    //clear grid color hover mean mouseover
+    const clearBtn = document.querySelector("#clear-btn");
 
-// At the end of your submit button click event:
-input.value = ''; //clear input text as user given
+    clearBtn.addEventListener("click", () => {
+        const allCells = document.querySelectorAll(".grid-cell");
+        allCells.forEach(cell => {
+            cell.style.backgroundColor = ""; //Clears the inline background color style
+        });
+    });
+    // At the end of your submit button click event:
+    input.value = ''; //clear input text as user given
 });
