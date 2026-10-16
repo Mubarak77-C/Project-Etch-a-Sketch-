@@ -39,8 +39,13 @@ container.innerHTML= ''; //wipe out whatever grid user putted from #grid-contain
 for(let i=0; i<totalcells; i++ ){
  const cell =document.createElement("div");
  cell.classList.add("grid-cell"); // Use this class in CSS to give cells a border
+ cell.addEventListener("mouseover" , ()=>{
+    cell.style.backgroundColor ="black";
+});
  container.appendChild(cell);
 }
+
+
 
 
 // At the end of your submit button click event:
