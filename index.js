@@ -50,6 +50,7 @@ submitBtn.addEventListener("click", () => {
 
     if (inputUser < 1 || inputUser > 100) {
         alert("Please Enter number from 1 to 100");
+        return; // <--- THIS STOPS THE CODE FROM RUNNING ANY FURTHER!
     }
     console.log(inputUser);
 
