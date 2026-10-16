@@ -1,3 +1,5 @@
+//const { createElement } = require("react");
+
 console.log('hy');
 // const input = document.querySelector("input");
 // const inputUser=input.value; // ❌ Happens instantly when the page loads!
@@ -20,7 +22,7 @@ submitBtn.addEventListener("click", () => {
         alert("Please Enter number from 1 to 100");
     }
     console.log(inputUser);
-});
+
 
 const totalcells = inputUser * inputUser; //N x N row coln grid as user input
 
@@ -28,3 +30,19 @@ const container = document.querySelector("#grid-container")
 // This sets the grid layout dynamically (e.g., repeat(4, 1fr))
 container.style.gridTemplateColumns = `repeat(${inputUser}, 1fr)`;
 container.style.gridTemplateRows = `repeat(${inputUser}, 1fr)`;
+
+
+container.innerHTML= ''; //wipe out whatever grid user putted from #grid-container
+//loop and appending css to visualise by createElement div and append to container to visible 
+
+
+for(let i=0; i<totalcells; i++ ){
+ const cell =document.createElement("div");
+ cell.classList.add("grid-cell"); // Use this class in CSS to give cells a border
+ container.appendChild(cell);
+}
+
+
+// At the end of your submit button click event:
+input.value = ''; //clear input text as user given
+});
